@@ -7,23 +7,25 @@ import java.util.regex.Pattern;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите строку с IP-адресом:");
+        System.out.print("Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ: ");
         String input = scanner.nextLine();
-        scanner.close();
 
-        // Регулярное выражение для поиска корректного IPv4-адреса
-        String ipPattern = "\\b((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\b";
-        Pattern pattern = Pattern.compile(ipPattern);
+        // Р РµРіСѓР»СЏСЂРЅРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ IPv4-Р°РґСЂРµСЃР°
+        String ipRegex = "\\b((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}"
+                + "(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\b";
+
+        Pattern pattern = Pattern.compile(ipRegex);
         Matcher matcher = pattern.matcher(input);
 
         boolean found = false;
+        System.out.println("РќР°Р№РґРµРЅРЅС‹Рµ IP-Р°РґСЂРµСЃР°:");
         while (matcher.find()) {
-            System.out.println("Найден корректный IP-адрес: " + matcher.group());
+            System.out.println(matcher.group());
             found = true;
         }
 
         if (!found) {
-            System.out.println("Корректный IP-адрес не найден.");
+            System.out.println("РљРѕСЂСЂРµРєС‚РЅС‹С… IP-Р°РґСЂРµСЃРѕРІ РЅРµ РЅР°Р№РґРµРЅРѕ.");
         }
     }
 }
