@@ -10,7 +10,7 @@ public class Main {
         System.out.print("Введите строку: ");
         String input = scanner.nextLine();
 
-        // Регулярное выражение для корректного IPv4-адреса
+        
         String ipRegex = "\\b((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}"
                 + "(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\b";
 
